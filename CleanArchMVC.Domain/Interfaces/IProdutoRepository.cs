@@ -11,8 +11,9 @@ namespace CleanArchMVC.Domain.Interfaces
     {
         Task<IEnumerable<Produto>> ListarProdutos();
         Task<Produto> BuscarProduto(long id);
-        Task<Produto> CriarProduto(Produto categoria);
-        Task<Produto> AtualizarProduto(Produto categoria);
-        Task<Produto> RemoverProduto(Produto categoria);
+        Task<Produto> BuscarProdutoCategoria(long id);
+        Task<Produto> CriarProduto(Produto produto);
+        Task<Produto> AtualizarProduto(Produto produto);
+        Task<Produto> RemoverProduto(Produto produto);
     }
 }
