@@ -1,4 +1,7 @@
-﻿using CleanArchMVC.Domain.Interfaces;
+﻿using CleanArchMVC.Application.Mappings;
+using CleanArchMVC.Application.Services;
+using CleanArchMVC.Application.Services.Interfaces;
+using CleanArchMVC.Domain.Interfaces;
 using CleanArchMVC.Infra.Context;
 using CleanArchMVC.Infra.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -22,6 +25,11 @@ namespace CleanArchMVC.Ioc
 
             services.AddScoped<ICategoriaRepository, CategoriaRepository>();
             services.AddScoped<IProdutoRepository, ProdutoRepository>();
+
+            services.AddScoped<IProdutoService, ProdutoService>();
+            services.AddScoped<ICategoriaService, CategoriaService>();
+
+            services.AddAutoMapper(typeof(MappingProfile));
 
             return services;
         }
