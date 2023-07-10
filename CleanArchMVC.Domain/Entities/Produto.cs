@@ -29,7 +29,7 @@ namespace CleanArchMVC.Domain.Entities
             Id = id;
         }
 
-        private void Update(string nome, string descricao, decimal preco, int estoque, string imagem, long categoriaId)
+        public void Update(string nome, string descricao, decimal preco, int estoque, string imagem, long categoriaId)
         {
             ValidateDomain(nome, descricao, preco, estoque, imagem);
             CategoriaId = categoriaId;

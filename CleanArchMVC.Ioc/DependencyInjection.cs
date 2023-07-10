@@ -31,6 +31,9 @@ namespace CleanArchMVC.Ioc
 
             services.AddAutoMapper(typeof(MappingProfile));
 
+            var myHandlers = AppDomain.CurrentDomain.Load("CleanArchMVC.Application");
+            services.AddMediatR(h => h.RegisterServicesFromAssemblies(myHandlers));
+
             return services;
         }
     }
