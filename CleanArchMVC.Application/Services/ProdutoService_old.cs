@@ -31,17 +31,17 @@ namespace CleanArchMVC.Application.Services
 
         public async Task<ProdutoDTO> BuscarProduto(long id)
         {
-            var produto = await _produtoRepository.BuscarProduto(id);
+            var produto = await _produtoRepository.BuscarProdutoPorId(id);
 
             return _mapper.Map<ProdutoDTO>(produto);
         }
 
-        public async Task<ProdutoDTO> BuscarProdutoCategoria(long id)
-        {
-            var produto = await _produtoRepository.BuscarProdutoCategoria(id);
+        //public async Task<ProdutoDTO> BuscarProdutoCategoria(long id)
+        //{
+        //    var produto = await _produtoRepository.BuscarProdutoCategoria(id);
 
-            return _mapper.Map<ProdutoDTO>(produto);
-        }
+        //    return _mapper.Map<ProdutoDTO>(produto);
+        //}
 
         public async Task CriarProduto(ProdutoDTO produtoDto)
         {
@@ -59,7 +59,7 @@ namespace CleanArchMVC.Application.Services
 
         public async Task RemoverProduto(long id)
         {
-            var produto = await _produtoRepository.BuscarProduto(id);
+            var produto = await _produtoRepository.BuscarProdutoPorId(id);
 
             await _produtoRepository.RemoverProduto(produto);
 

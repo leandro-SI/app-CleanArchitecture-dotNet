@@ -11,7 +11,7 @@ namespace CleanArchMVC.Application.Services.Interfaces
     {
         Task<IEnumerable<ProdutoDTO>> ListarProdutos();
         Task<ProdutoDTO> BuscarProduto(long id);
-        Task<ProdutoDTO> BuscarProdutoCategoria(long id);
+        //Task<ProdutoDTO> BuscarProdutoCategoria(long id);
         Task CriarProduto(ProdutoDTO produtoDto);
         Task AtualizarProduto(ProdutoDTO produtoDto);
         Task RemoverProduto(long id);

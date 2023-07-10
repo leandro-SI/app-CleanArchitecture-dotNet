@@ -27,20 +27,22 @@ namespace CleanArchMVC.Infra.Repositories
             return produto;
         }
 
-        public async Task<Produto> BuscarProduto(long id)
+        public async Task<Produto> BuscarProdutoPorId(long id)
         {
-            return await _produtoContext.Produtos.FindAsync(id);
+            //return await _produtoContext.Produtos.FindAsync(id);
+            return await _produtoContext.Produtos.Include(p => p.Categoria)
+                .SingleOrDefaultAsync(p => p.Id == id);
         }
+
+        //public Task<Produto> BuscarProdutoCategoria(long id)
+        //{
+        //    return _produtoContext.Produtos.Include(p => p.Categoria)
+        //        .SingleOrDefaultAsync(p => p.Id == id);
+        //}
 
         public async Task<IEnumerable<Produto>> ListarProdutos()
         {
             return await _produtoContext.Produtos.ToListAsync();
-        }
-
-        public Task<Produto> BuscarProdutoCategoria(long id)
-        {
-            return _produtoContext.Produtos.Include(p => p.Categoria)
-                .SingleOrDefaultAsync(p => p.Id == id);
         }
 
         public async Task<Produto> AtualizarProduto(Produto produto)

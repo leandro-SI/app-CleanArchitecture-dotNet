@@ -10,8 +10,8 @@ namespace CleanArchMVC.Domain.Interfaces
     public interface IProdutoRepository
     {
         Task<IEnumerable<Produto>> ListarProdutos();
-        Task<Produto> BuscarProduto(long id);
-        Task<Produto> BuscarProdutoCategoria(long id);
+        Task<Produto> BuscarProdutoPorId(long id);
+        //Task<Produto> BuscarProdutoCategoria(long id);
         Task<Produto> CriarProduto(Produto produto);
         Task<Produto> AtualizarProduto(Produto produto);
         Task<Produto> RemoverProduto(Produto produto);

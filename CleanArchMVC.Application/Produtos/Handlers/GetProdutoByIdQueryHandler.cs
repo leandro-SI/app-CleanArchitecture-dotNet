@@ -22,7 +22,7 @@ namespace CleanArchMVC.Application.Produtos.Handlers
 
         public async Task<Produto> Handle(GetProdutoByIdQuery request, CancellationToken cancellationToken)
         {
-            return await _produtoRepository.BuscarProduto(request.Id);
+            return await _produtoRepository.BuscarProdutoPorId(request.Id);
         }
     }
 }
