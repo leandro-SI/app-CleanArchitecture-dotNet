@@ -17,8 +17,8 @@
     <div class="col-md-12">
         <div>
             <div class="pull-left">
-                <a asp-action="Create" class="btn btn-primary">
-                    <span title="Register New" class="fas fa-plus"></span> Register New
+                <a asp-action="Criar" class="btn btn-primary">
+                    <span title="Novo Produto" class="fas fa-plus"></span> Novo Produto
                 </a>
             </div>
         </div>
@@ -55,15 +55,15 @@
                         @Html.DisplayFor(modelItem => item.Preco)
                     </td>
                     <td>
-                        <a asp-action="Edit" asp-route-id="@item.Id" title="Edit" class="btn btn-warning">
+                        <a asp-action="Editar" asp-route-id="@item.Id" title="Edit" class="btn btn-warning">
                             <span class="fas fa-edit">Edit</span>
                         </a>
 
-                        <a asp-action="Details" asp-route-id="@item.Id" title="Details" class="btn btn-primary">
+                        <a asp-action="Detalhes" asp-route-id="@item.Id" title="Details" class="btn btn-primary">
                             <span class="fas fa-search">Details</span>
                         </a>
 
-                        <a asp-action="Delete" asp-route-id="@item.Id" title="Delete" class="btn btn-danger">
+                        <a asp-action="Deletar" asp-route-id="@item.Id" title="Delete" class="btn btn-danger">
                             <span class="fas fa-trash-alt">Delete</span>
                         </a>
                     </td>

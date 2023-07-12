@@ -1,0 +1,30 @@
+﻿@using CleanArchMVC.Application.DTOs;
+@model CategoriaDTO
+
+@{
+    ViewData["Title"] = "Deletar Categoria";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<hr />
+
+<h4>Tem certeza de que deseja excluir a Categoria?</h4>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-md-2">
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+    </dl>
+
+    <form asp-action="Deletar">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Deletar" class="btn btn-danger" />
+        <a asp-action="index" class="pl-3">Voltar</a>
+    </form>
+</div>
