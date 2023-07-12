@@ -19,11 +19,11 @@
         <dd class="col-md-10">
             @if (!ViewBag.ImagemExiste)
             {
-                <img src="~/imagens/noImage.jpg" class="rounded-circle" height="300" width="300" asp-asp-append-version="true" />
+                <img src="~/images/noImage.jpg" class="rounded-circle" height="300" width="300" asp-asp-append-version="true" />
             }
             else
             {
-                <img src="~/imagens/@Model.Imagem" class="rounded-circle" height="300" width="300" asp-asp-append-version="true" />
+                <img src="~/images/@Model.Imagem" class="rounded-circle" height="300" width="300" asp-asp-append-version="true" />
             }
         </dd>
         <dt class="col-md-2">@Html.DisplayNameFor(model => model.Preco)</dt>
