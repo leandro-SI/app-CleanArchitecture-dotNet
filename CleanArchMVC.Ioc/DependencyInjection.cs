@@ -1,9 +1,12 @@
 ﻿using CleanArchMVC.Application.Mappings;
 using CleanArchMVC.Application.Services;
 using CleanArchMVC.Application.Services.Interfaces;
+using CleanArchMVC.Domain.Account;
 using CleanArchMVC.Domain.Interfaces;
 using CleanArchMVC.Infra.Context;
+using CleanArchMVC.Infra.Identity;
 using CleanArchMVC.Infra.Repositories;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -23,11 +26,21 @@ namespace CleanArchMVC.Ioc
                 options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"), 
                 b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName)));
 
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders();
+
+            services.ConfigureApplicationCookie(opt => opt.AccessDeniedPath = "/Account/Login/");
+
             services.AddScoped<ICategoriaRepository, CategoriaRepository>();
             services.AddScoped<IProdutoRepository, ProdutoRepository>();
 
             services.AddScoped<IProdutoService, ProdutoService>();
             services.AddScoped<ICategoriaService, CategoriaService>();
+
+            services.AddScoped<IAuthenticate, AuthenticateService>();
+            services.AddScoped<ISeedUserRoleInitial, SeedUserRoleInitial>();
+
 
             services.AddAutoMapper(typeof(MappingProfile));
 
