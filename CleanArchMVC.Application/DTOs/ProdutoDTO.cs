@@ -5,7 +5,9 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace CleanArchMVC.Application.DTOs
@@ -42,6 +44,9 @@ namespace CleanArchMVC.Application.DTOs
         [DisplayName("Imagem do Produto")]
         public string Imagem { get; set; }
         public long CategoriaId { get; set; }
+
+        [JsonIgnore]
+        [IgnoreDataMember]
         public Categoria Categoria { get; set; }
     }
 }
