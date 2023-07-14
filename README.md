@@ -56,3 +56,24 @@ Escopo Geral - Persistência dos dados usada no projeto:
 - Ferramenta ORM: Entity Framework Core;
 - Sera utilizado a abordagem Code-First do Entity Framework Core para criar o banco de dados e as tabelas
 - Desacoplamento da camada de acesso a dados do ORM: Padrão Repository
+
+   ##
+
+## Prerequisites
+
+✔ - .Net 6.0
+
+✔ - Visual code ou Visual Studio 2022
+
+✔ - SQLServer
+
+## Quick Start
+
+```
+  
+  git clone https://github.com/leandro-SI/app-CleanArchitecture-dotNet/
+
+  run project
+  
+```
+
