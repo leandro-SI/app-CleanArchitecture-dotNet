@@ -1,6 +1,7 @@
 ﻿using CleanArchMVC.Application.DTOs;
 using CleanArchMVC.Application.Services;
 using CleanArchMVC.Application.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ namespace CleanArchMVC.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class ProdutosController : ControllerBase
     {
         private readonly IProdutoService _produtoService;
@@ -34,7 +36,7 @@ namespace CleanArchMVC.API.Controllers
         {
             var produto = await _produtoService.BuscarProduto(id);
 
-            if (produto == null) return NotFound("Produto não encontrada.");
+            if (produto == null) return NotFound("Produto não encontrado.");
 
             return Ok(produto);
         }

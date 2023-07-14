@@ -29,11 +29,13 @@ namespace CleanArchMVC.API
         {
             services.AdicionarInfraEstruturaAPI(Configuration);
 
+            //ativar autenticacao e validar token
+            services.AdicionarInfraEstruturaJWT(Configuration);
+
             services.AddControllers();
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "CleanArchMVC.API", Version = "v1" });
-            });
+
+            services.AdicionarInfraEstruturaSwagger();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,7 +50,11 @@ namespace CleanArchMVC.API
 
             app.UseHttpsRedirection();
 
+            app.UseStatusCodePages();
+
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
